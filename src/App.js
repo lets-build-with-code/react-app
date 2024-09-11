@@ -5,7 +5,7 @@ import Child from './Child';
 class App extends Component {
   constructor() {
     super();
-    _fullName = {
+    this._fullName = {
       fristname:'sun',
       lastname : 'sha'
     }
@@ -13,7 +13,7 @@ class App extends Component {
 
   render() {
     return <Child 
-               fullName={firstname: 'sun', lastname: 'sha'}
+               fullName={this._fullName}
                age={28}
             /> 
   }

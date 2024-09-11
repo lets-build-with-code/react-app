@@ -1,22 +1,24 @@
 import './App.css';
 import { Component } from 'react';
-import Child from './Child';
 
 class App extends Component {
   constructor() {
     super();
-    this._fullName = {
-      firstname:'sunil',
+    this.state = {
+      firstname : 'sun',
       lastname : 'sha'
-    }
+    }    
   }
 
   render() {
-    return <Child 
-               fullName={this._fullName}
-               age={28}
-            /> 
+    return <div>
+          <h1>Full Name : {this.state.firstname} {this.state.lastname}</h1>
+          <button onClick={() => {this.setState({firstname : 'sam'})}}> update</button>
+      </div>      
   }
 }
+
+
+
 
 export default App;

@@ -1,21 +1,32 @@
 import './App.css';
 import { Component } from 'react';
 import Child from './Child';
+import ErrorWrapper from './ErrorWrapper';
 
 class App extends Component {
   constructor() {
     super();
-    _fullName = {
-      fristname:'sun',
-      lastname : 'sha'
+    this.state = {
+      firstname: 'sun',
+      lastname: 'sha',
+      count : 0,
+      triggerError: false
     }
+
+   
   }
 
   render() {
-    return <Child 
-               fullName={firstname: 'sun', lastname: 'sha'}
-               age={28}
-            /> 
+
+    return <div>
+      <Child
+              fullName={this.state}
+              count = {this.state.count}
+              age={28}
+            />
+            
+            <button onClick={() => {this.setState({firstname:'sam', count : this.state.count + 1, triggerError: !this.state.triggerError })}}>Update</button>
+          </div>
   }
 }
 

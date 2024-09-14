@@ -2,8 +2,7 @@ import { Component } from "react";
 
 class Child extends Component {
     constructor(props) {
-        super(props);
-        
+        super(props);      
     }
   
     componentDidMount() {
@@ -20,15 +19,12 @@ class Child extends Component {
       console.log({ComponentDidUpdate : true, prevProps, prevState});
     }
 
+
+    componentWillUnmount() {
+      console.log({componentWillUnMount: true})
+    }
+
     render() {
-      if (this.props.triggerError) {
-        // try {
-          throw new Error('I crashed!');
-        // } catch (error) {
-          
-        // }
-        
-      }
       return <div> 
         <h1>Full Name : {this.props.fullName.firstname} {this.props.fullName.lastname}</h1>
         <h2>Age : {this.props.age}</h2>

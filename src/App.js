@@ -1,6 +1,8 @@
 import './App.css';
 import { Component } from 'react';
 import Child from './Child';
+import ErrorWrapper from './ErrorWrapper';
+
 
 class App extends Component {
   constructor() {
@@ -14,14 +16,19 @@ class App extends Component {
   }
 
   render() {
-
+  // if(this.state.count > 1) {
+  //   throw new Error('App Error');
+  // }
     return <div>
-      {!this.state.hideChild && <Child fullName={this.state}
+       <Child fullName={this.state}
               count = {this.state.count}
               age={28}
-            />}
-            <button onClick={() => {this.setState({firstname:'sam', count : this.state.count + 1, hideChild : !this.state.hideChild})}}>
-              {(this.state.hideChild) ? 'Show' : 'Hide'}</button>
+            />
+    
+      
+            <button onClick={() => {this.setState({firstname:'sam', count : this.state.count + 1})}}>
+              count
+            </button>
           </div>
   }
 }

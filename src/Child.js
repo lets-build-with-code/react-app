@@ -4,27 +4,12 @@ class Child extends Component {
     constructor(props) {
         super(props);      
     }
-  
-    componentDidMount() {
-      console.log({componentDidMount: "inserting/adding component in Dom."})  
-    }
 
-    shouldComponentUpdate(nextProps, nextState) {
-      console.log({shouldComponentUpdate : nextProps.count >= 3, nextProps, nextState});
-      
-        return nextProps.count >= 3;
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-      console.log({ComponentDidUpdate : true, prevProps, prevState});
-    }
-
-
-    componentWillUnmount() {
-      console.log({componentWillUnMount: true})
-    }
 
     render() {
+      if(this.props.count > 2) {
+        throw new Error('Child Error')
+      }
       return <div> 
         <h1>Full Name : {this.props.fullName.firstname} {this.props.fullName.lastname}</h1>
         <h2>Age : {this.props.age}</h2>

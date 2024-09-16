@@ -2,19 +2,24 @@ import { Component } from "react";
 
 class Child extends Component {
     constructor(props) {
-        super(props);      
+        super(props); 
+        this.user = [
+          {name: 'sun' , type: 'admin'},
+          {name: 'sam' , type: 'supervisor'}
+        ]     
     }
 
+    sendData = () => {
+      this.props.onReceive(this.user)
+    }
 
     render() {
-      if(this.props.count > 2) {
-        throw new Error('Child Error')
-      }
-      return <div> 
-        <h1>Full Name : {this.props.fullName.firstname} {this.props.fullName.lastname}</h1>
-        <h2>Age : {this.props.age}</h2>
-             </div>
+      return <div className="container"> 
+             <p>Child Componet</p>
+             <button onClick={this.sendData}>Send Data To Parent</button>
+          </div>
     }
   }
 
   export default Child;
+  

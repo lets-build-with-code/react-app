@@ -7,9 +7,7 @@ class App extends Component {
     super();
     this.state = {
       data: null,
-     
     };
-   
   }
 
   onReceiveData = (data) => {
@@ -17,7 +15,7 @@ class App extends Component {
   };
 
   items = (users) => {
-    return users?.map(usr => <li>{usr.name} - {usr.type}</li>)
+    return users?.map(usr => <li key={usr.id}>{usr.name} - {usr.type}</li>)
   };
 
 
@@ -37,3 +35,4 @@ class App extends Component {
 }
 
 export default App;
+

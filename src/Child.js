@@ -4,8 +4,8 @@ class Child extends Component {
     constructor(props) {
         super(props); 
         this.user = [
-          {name: 'sun' , type: 'admin'},
-          {name: 'sam' , type: 'supervisor'}
+          {id:'1', name: 'sun' , type: 'admin'},
+          {id:'2', name: 'sam' , type: 'supervisor'}
         ]     
     }
 

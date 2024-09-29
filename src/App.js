@@ -1,43 +1,25 @@
+import { useState } from "react";
 import "./App.css";
-import { Component } from "react";
+import Child from "./Child";
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      firstname : 'sun',
-      lastName : 'sha'
-    }
-    // this.firstname = "sun";
-    // this.lastname = "sha";
-    // this.updateValues = this.updateValues.bind(this);
+function App() {
+  const [users, setUsers] = useState([])
+  const getDataFromChild = (data) => {
+    console.log(data);
+    setUsers(data);
   }
-
-  render() {
-    return <div>
-       <h1>{this.state.firstname} - {this.state.lastName} </h1>
-       <button onClick={ () => { this.setState({firstname : 'sam'})} }>Update</button>
+  return (
+    <div>
+      <div className="container">
+        <h3>Parent Component</h3>
+        {users?.map((usr) => <li key={usr.id}>{usr.name} - {usr.department}</li>)}
+      </div>
+      <Child onReceive={getDataFromChild}/>
     </div>
-  }
-    // get firstName() {
-  //   return this.firstname
-  // }
-  // set _firstName(value) {
-  //   this.firstname = value
-  // }
-  // get lastName() {
-  //   return this.lastname
-  // }
-  // set _lastName(value) {
-  //   this.lastname = value
-  // }
-
-  // updateValues = () => {
-  //   console.log({first : this.firstName, last : this.lastName});
-  //   this.forceUpdate();
-  //   this._firstName = 'sam'; this._lastName = 'ver' 
-  // }
+  );
 }
 
-export default App;
 
+
+
+export default App;
